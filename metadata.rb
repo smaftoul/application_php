@@ -6,5 +6,6 @@ description      "Deploys and configures PHP-based applications"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "1.1.3"
 
-depends "apache2"
-depends "php"
+%w{ application php apache2 }.each do |cb|
+  depends cb
+end
